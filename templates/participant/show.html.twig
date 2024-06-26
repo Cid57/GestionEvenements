@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participant{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <h1>Participant</h1>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ participant.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ participant.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ participant.prenom }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ participant.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <div class="actions">
+            <a class="btn btn-primary" href="{{ path('app_participant_index') }}">
+                <i class="fas fa-arrow-left"></i> Retour à la liste
+            </a>
+            <a class="btn btn-secondary" href="{{ path('app_participant_edit', {'id': participant.id}) }}">
+                <i class="fas fa-edit"></i> Modifier
+            </a>
+            {{ include('participant/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}

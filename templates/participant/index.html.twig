@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participant{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <h1>Participant</h1>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for participant in participants %}
+                <tr>
+                    <td>{{ participant.id }}</td>
+                    <td>{{ participant.nom }}</td>
+                    <td>{{ participant.prenom }}</td>
+                    <td>{{ participant.email }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('app_participant_show', {'id': participant.id}) }}">
+                            <i class="fas fa-eye"></i> Voir
+                        </a>
+                        <a class="btn btn-secondary" href="{{ path('app_participant_edit', {'id': participant.id}) }}">
+                            <i class="fas fa-edit"></i> Modifier
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No records found</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success" href="{{ path('app_participant_new') }}">
+            <i class="fas fa-plus"></i> Nouveau participant
+        </a>
+    </div>
+</div>
+{% endblock %}

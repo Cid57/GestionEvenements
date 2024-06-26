@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'Événement{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <h1>Modifier l'Événement</h1>
+    </div>
+    <div class="card-body">
+        <div class="form-container">
+            {{ include('evenement/_form.html.twig', {'button_label': 'Modifier'}) }}
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="actions">
+            <a class="btn btn-primary" href="{{ path('app_evenement_index') }}">
+                <i class="fas fa-arrow-left"></i> Retour à la liste
+            </a>
+
+            {{ include('evenement/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
